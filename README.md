@@ -1,1 +1,1 @@
-Angular 7 training
+Angular 7. Training
