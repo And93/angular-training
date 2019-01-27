@@ -1,0 +1,12 @@
+<div class="products item">
+  <input type="checkbox" (click)="onSelect($event)">
+  <div class="item-body">
+    <ul>
+      <li>Name: {{product.name}}</li>
+      <li>Model: {{product.model}}</li>
+      <li>Cost (x1): {{product.cost}}</li>
+      <li>Available: {{product.count}}</li>
+      <li *ngIf="product.booked">Booked: {{product.booked}}</li>
+    </ul>
+  </div>
+</div>
