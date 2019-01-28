@@ -1,5 +1,5 @@
 <div class="products item">
-  <input type="checkbox" (click)="onSelect($event)">
+  <input type="checkbox" [checked]="isSelected" (click)="toggle()">
   <div class="item-body">
     <ul>
       <li>Name: {{product.name}}</li>

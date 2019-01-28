@@ -14,10 +14,16 @@ export class ProductComponent implements OnInit {
   @Output()
   selected: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
 
+  isSelected: boolean = false;
+
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  toggle() {
+    this.isSelected = !this.isSelected;
   }
 
   onSelect($event): void {
