@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ProductModel} from "./product/models/product-model";
 import {ProductService} from "./product/service/product.service";
 
@@ -10,15 +10,30 @@ import {ProductService} from "./product/service/product.service";
 export class ProductListComponent implements OnInit {
 
   products: ProductModel[];
+  booked: ProductModel[] = [];
+
+  toBasket: ProductModel[] = [];
 
   constructor(public productService: ProductService) {
   }
 
-  ngOnInit() {
-    this.products = this.productService.getProducts();
+  ngOnInit(): ProductModel[] {
+    return this.products = this.productService.getProducts();
   }
 
-  onBuy() {
-    console.log('Congratulations');
+  onSelected(product: ProductModel): ProductModel[] | number {
+
+    if (this.booked.length) {
+      for (const value of this.booked) {
+        if (value.name === product.name) {
+          return this.booked.splice(this.booked.indexOf(product), 1);
+        }
+      }
+    }
+    return this.booked.push(product);
+  }
+
+  onAdd(): void {
+    this.booked.forEach((product: ProductModel) => this.toBasket.push(product));
   }
 }

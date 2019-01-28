@@ -22,12 +22,8 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggle() {
+  onSelected(): void {
     this.isSelected = !this.isSelected;
-  }
-
-  onSelect($event): void {
-    console.log($event);
-    return this.selected.emit(this.product);
+    this.selected.emit(this.product);
   }
 }

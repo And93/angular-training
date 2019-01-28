@@ -1,8 +1,14 @@
-<app-product
-  *ngFor="let product of products"
-  [product]="product">
-</app-product>
-<button type="button" (click)="onBuy()">Buy</button>
-
-<ul class="basket"></ul>
-
+<div class="basket">
+  <app-basket
+  [bookedProducts]="toBasket"
+  >
+  </app-basket>
+</div>
+<div>
+  <app-product
+    *ngFor="let product of products"
+    [product]="product"
+    (selected)="onSelected($event)"
+  ></app-product>
+</div>
+<button type="button" [disabled]="!booked.length" (click)="onAdd()">Add {{booked.length}}</button>

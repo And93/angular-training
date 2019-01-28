@@ -4,11 +4,13 @@ import {ProductService} from "./product-list/product/service/product.service";
 import {ProductComponent} from "./product-list/product/product.component";
 import {ProductListComponent} from "./product-list/product-list.component";
 import {FormsModule} from "@angular/forms";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   declarations: [
     ProductComponent,
