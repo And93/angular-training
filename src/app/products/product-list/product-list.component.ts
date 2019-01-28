@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
 
     if (this.booked.length) {
       for (const value of this.booked) {
-        if (value.name === product.name) {
+        if (value.name === product.name && value.model === product.model) {
           return this.booked.splice(this.booked.indexOf(product), 1);
         }
       }
