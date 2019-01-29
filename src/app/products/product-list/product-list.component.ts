@@ -35,5 +35,6 @@ export class ProductListComponent implements OnInit {
 
   onAdd(): void {
     this.booked.forEach((product: ProductModel) => this.toBasket.push(product));
+    this.booked = [];
   }
 }
