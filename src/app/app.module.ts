@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
  */
 
 import {ProductsModule} from "./products/products.module";
+import {CartModule} from "./cart/cart.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {ProductsModule} from "./products/products.module";
     BrowserModule,
     AppRoutingModule,
 
-    ProductsModule
+    ProductsModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

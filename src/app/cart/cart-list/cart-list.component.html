@@ -1,13 +1,6 @@
-
-
-<!--How to use it together?-->
-
 <div>
-  <app-cart-item>
-    <app-basket
-      (boughtProducts)="onBought($event)"
-      *ngFor="let item of myBoughtProducts"
-      [item]="item"
-    ></app-basket>
+  <app-cart-item
+    *ngFor="let item of myBoughtProducts()"
+    [item]="item">
   </app-cart-item>
 </div>

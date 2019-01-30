@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ProductModel} from "../../products/product-list/product/models/product-model";
+import {BasketItemsService} from "./service/basket-items.service";
 
 @Component({
   selector: 'app-basket',
@@ -11,16 +12,14 @@ export class BasketComponent implements OnInit {
   @Input()
   bookedProducts: ProductModel[];
 
-  @Output()
-  boughtProducts: EventEmitter<ProductModel[]> = new EventEmitter<ProductModel[]>();
-
-  constructor() { }
+  constructor(public basketItemsService: BasketItemsService) {
+  }
 
   ngOnInit() {
   }
 
   onBasket() {
-    this.boughtProducts.emit(this.bookedProducts);
+    this.basketItemsService.setBoughtProducts(this.bookedProducts);
     this.bookedProducts = [];
   }
 

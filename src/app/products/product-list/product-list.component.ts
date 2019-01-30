@@ -11,7 +11,6 @@ export class ProductListComponent implements OnInit {
 
   products: ProductModel[];
   booked: ProductModel[] = [];
-
   toBasket: ProductModel[] = [];
 
   constructor(public productService: ProductService) {
