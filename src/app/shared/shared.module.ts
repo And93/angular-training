@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BasketComponent} from './basket/basket.component';
-import {BasketItemsService} from './basket/service/basket-items.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +11,6 @@ import {BasketItemsService} from './basket/service/basket-items.service';
   ],
   exports: [
     BasketComponent
-  ],
-  providers: [
-    BasketItemsService
   ]
 })
 export class SharedModule {

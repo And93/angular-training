@@ -16,9 +16,6 @@ import {SharedModule} from '../shared/shared.module';
     ProductComponent,
     ProductListComponent
   ],
-  providers: [
-    ProductService
-  ],
   exports: [
     ProductListComponent
   ]

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductModel} from './product/models/product-model';
 import {ProductService} from './product/service/product.service';
 
@@ -22,11 +22,9 @@ export class ProductListComponent implements OnInit {
 
   onSelected(product: ProductModel): ProductModel[] | number {
 
-    if (this.booked.length) {
-      for (const value of this.booked) {
-        if (value.name === product.name && value.model === product.model) {
-          return this.booked.splice(this.booked.indexOf(product), 1);
-        }
+    for (const value of this.booked) {
+      if (value.name === product.name && value.model === product.model) {
+        return this.booked.splice(this.booked.indexOf(product), 1);
       }
     }
     return this.booked.push(product);
