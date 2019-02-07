@@ -3,4 +3,8 @@
     *ngFor="let item of myBoughtProducts()"
     [item]="item">
   </app-cart-item>
+  <div class="total-info">
+    <li *ngIf="totalCount()">Total count: {{totalCount()}}</li>
+    <li *ngIf="totalCost()">Total cost: {{totalCost()}}</li>
+  </div>
 </div>

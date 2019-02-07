@@ -20,4 +20,12 @@ export class CartListComponent implements OnInit {
     return this.basketItemsService.getBoughtProducts();
   }
 
+  totalCount() {
+    return this.basketItemsService.totalCount()
+  }
+
+  totalCost() {
+    return this.basketItemsService.totalCost();
+  }
+
 }
