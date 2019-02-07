@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
  * Modules
  */
 
-import {ProductsModule} from "./products/products.module";
-import {CartModule} from "./cart/cart.module";
+import {ProductsModule} from './products/products.module';
+import {CartModule} from './cart/cart.module';
 
 @NgModule({
   declarations: [

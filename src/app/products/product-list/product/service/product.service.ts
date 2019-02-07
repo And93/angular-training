@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ProductModel} from "../models/product-model";
+import {ProductModel} from '../models/product-model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,6 @@ export class ProductService {
       new ProductModel('Copter', 'Free fly 1000', 400, 7),
       new ProductModel('Sounds system', 'Happy neighbors v2.0', 780, 1, true),
       new ProductModel('PC', 'Electronic h5', 1500, 10)
-    ]
+    ];
   }
 }
