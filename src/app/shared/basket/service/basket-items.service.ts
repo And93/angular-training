@@ -8,6 +8,8 @@ export class BasketItemsService {
 
   private boughtProducts: ProductModel[];
 
+  public chosenProducts: ProductModel[] = [];
+
   constructor() {
   }
 

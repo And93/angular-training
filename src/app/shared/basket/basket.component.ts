@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ProductModel} from '../../products/product-list/product/models/product-model';
+import {Component, OnInit} from '@angular/core';
 import {BasketItemsService} from './service/basket-items.service';
 
 @Component({
@@ -9,9 +8,6 @@ import {BasketItemsService} from './service/basket-items.service';
 })
 export class BasketComponent implements OnInit {
 
-  @Input()
-  bookedProducts: ProductModel[];
-
   constructor(public basketItemsService: BasketItemsService) {
   }
 
@@ -19,8 +15,7 @@ export class BasketComponent implements OnInit {
   }
 
   onBasket() {
-    this.basketItemsService.setBoughtProducts(this.bookedProducts);
-    this.bookedProducts = [];
+    this.basketItemsService.setBoughtProducts(this.basketItemsService.chosenProducts);
   }
 
 }

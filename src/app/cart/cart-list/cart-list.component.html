@@ -1,10 +1,13 @@
 <div>
   <app-cart-item
     *ngFor="let item of myBoughtProducts()"
-    [item]="item">
+    [item]="item"
+    (remove)="removeProduct($event)">
   </app-cart-item>
+  <p></p>
   <div class="total-info">
     <li *ngIf="totalCount()">Total count: {{totalCount()}}</li>
     <li *ngIf="totalCost()">Total cost: {{totalCost()}}</li>
   </div>
+  <button type="button" (click)="onRemoveAll()" *ngIf="myBoughtProducts()">Clean basket</button>
 </div>

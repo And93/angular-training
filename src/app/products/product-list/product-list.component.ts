@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {ProductModel} from './product/models/product-model';
 import {ProductService} from './product/service/product.service';
+import {BasketItemsService} from '../../shared/basket/service/basket-items.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,28 +12,24 @@ export class ProductListComponent implements OnInit {
 
   products: ProductModel[];
   booked: ProductModel[] = [];
-  toBasket: ProductModel[] = [];
   added: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(public productService: ProductService) {
+  constructor(
+    public productService: ProductService,
+    public basketItemsService: BasketItemsService
+    ) {
   }
 
   ngOnInit(): ProductModel[] {
     return this.products = this.productService.getProducts();
   }
 
-  onSelected(product: ProductModel): ProductModel[] | number {
-
-    for (const value of this.booked) {
-      if (value.name === product.name && value.model === product.model) {
-        return this.booked.splice(this.booked.indexOf(product), 1);
-      }
-    }
+  onSelected(product: ProductModel): number {
     return this.booked.push(product);
   }
 
   onAdd(): void {
-    this.booked.forEach((product: ProductModel) => this.toBasket.push(product));
+    this.booked.forEach((product: ProductModel) => this.basketItemsService.chosenProducts.push(product));
     this.booked = [];
     this.added.emit(true);
   }

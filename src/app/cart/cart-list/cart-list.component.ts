@@ -9,7 +9,6 @@ import {BasketItemsService} from '../../shared/basket/service/basket-items.servi
 })
 export class CartListComponent implements OnInit {
 
-
   constructor(public basketItemsService: BasketItemsService) {
   }
 
@@ -26,6 +25,17 @@ export class CartListComponent implements OnInit {
 
   totalCost() {
     return this.basketItemsService.totalCost();
+  }
+
+  onRemoveAll() {
+    this.basketItemsService.chosenProducts = [];
+    return this.basketItemsService.setBoughtProducts(this.basketItemsService.chosenProducts);
+  }
+
+  removeProduct(product: ProductModel) {
+    const products: ProductModel[] = this.myBoughtProducts();
+    const _product = products.find((value: ProductModel) => value === product);
+    return products.splice(products.indexOf(_product), 1);
   }
 
 }
