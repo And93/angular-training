@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {ProductModel} from './product/models/product-model';
 import {ProductService} from './product/service/product.service';
 
@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
   products: ProductModel[];
   booked: ProductModel[] = [];
   toBasket: ProductModel[] = [];
+  added: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(public productService: ProductService) {
   }
@@ -33,5 +34,6 @@ export class ProductListComponent implements OnInit {
   onAdd(): void {
     this.booked.forEach((product: ProductModel) => this.toBasket.push(product));
     this.booked = [];
+    this.added.emit(true);
   }
 }

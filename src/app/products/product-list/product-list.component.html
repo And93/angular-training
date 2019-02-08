@@ -6,6 +6,7 @@
     *ngFor="let product of products"
     [product]="product"
     (selected)="onSelected($event)"
+    [added]="added"
   ></app-product>
 </div>
 <button type="button" [disabled]="!booked.length" (click)="onAdd()">Add {{booked.length}}</button>

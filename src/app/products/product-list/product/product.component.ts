@@ -16,10 +16,14 @@ export class ProductComponent implements OnInit {
 
   isSelected = false;
 
+  @Input()
+  added: EventEmitter<boolean>;
+
   constructor() {
   }
 
   ngOnInit() {
+    this.added.subscribe(() => this.isSelected = false);
   }
 
   onSelected(): void {

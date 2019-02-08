@@ -20,12 +20,19 @@ export class BasketItemsService {
   }
 
   totalCount(): number {
+    if (!this.boughtProducts) {
+      return;
+    }
     return this.boughtProducts.length;
   }
 
   totalCost(): number {
-    let sum: number = 0;
-    this.boughtProducts.forEach(product => sum + product.cost);
+    if (!this.boughtProducts) {
+      return;
+    }
+
+    let sum = 0;
+    this.boughtProducts.forEach(product => sum += product.cost);
     return sum;
   }
 }
