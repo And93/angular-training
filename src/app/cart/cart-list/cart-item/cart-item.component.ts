@@ -23,4 +23,12 @@ export class CartItemComponent implements OnInit {
     this.remove.emit(this.item);
   }
 
+  onMinus() {
+    return this.item.count > 0 ? this.item.count-- : this.removeItem();
+  }
+
+  onPlus() {
+    return this.item.count++;
+  }
+
 }

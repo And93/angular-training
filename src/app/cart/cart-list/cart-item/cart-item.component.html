@@ -4,8 +4,28 @@
       <li>Name: {{item.name}}</li>
       <li>Model: {{item.model}}</li>
       <li>Cost (x1): {{item.cost}}</li>
-      <li>Total cost: {{item.cost}}</li>
+      <li>Count: {{item.count}}</li>
+      <li>Total cost: {{item.cost * item.count}}</li>
     </ul>
+
+    <button
+      type="button"
+      (click)="onMinus()">
+      <img
+        width="10"
+        alt="minus-item"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAkSURBVEhLYxgFo2AUjALSwH8qYwyATREleBSMglEwCogDDAwAAg8n2XQlpsQAAAAASUVORK5CYII=">
+    </button>
+
+    <button
+      type="button"
+      (click)="onPlus()">
+      <img
+        width="10"
+        alt="plus-item"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA5SURBVEhLYxhx4D8U0wyMWkAQjFpAEAxuC2CaqYUxADZFlGCyAEWaiQGjFhAEoxYQBEPfgsEGGBgA4hNLtXHKA2AAAAAASUVORK5CYII=">
+    </button>
+
     <button type="button" (click)="removeItem()">Remove</button>
   </div>
 </div>

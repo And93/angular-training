@@ -6,14 +6,23 @@ import {ProductModel} from '../../../products/product-list/product/models/produc
 })
 export class BasketItemsService {
 
-  private boughtProducts: ProductModel[];
-
+  private boughtProducts: ProductModel[] = [];
   public chosenProducts: ProductModel[] = [];
 
   constructor() {
   }
 
-  setBoughtProducts(products: ProductModel[]) {
+  setBoughtProducts(products: ProductModel[]) { // TODO
+    products.forEach(prod => {
+      prod.count = 1;
+      for (const value of this.boughtProducts) {
+        if (prod.model === value.model) {
+          value.count++;
+          products.splice(products.indexOf(prod), 1);
+          break;
+        }
+      }
+    });
     return this.boughtProducts = products;
   }
 
