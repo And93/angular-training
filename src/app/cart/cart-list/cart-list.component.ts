@@ -32,9 +32,9 @@ export class CartListComponent implements OnInit {
     return this.basketItemsService.setBoughtProducts(this.basketItemsService.chosenProducts);
   }
 
-  removeProduct(product: ProductModel) {
+  removeProduct(product: ProductModel): ProductModel[] {
     const products: ProductModel[] = this.myBoughtProducts();
-    const _product = products.find((value: ProductModel) => value === product);
+    const _product: ProductModel = products.find((value: ProductModel) => value === product);
     return products.splice(products.indexOf(_product), 1);
   }
 

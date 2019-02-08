@@ -9,15 +9,15 @@ import {ProductModel} from './models/product-model';
 export class ProductComponent implements OnInit {
 
   @Input()
+  added: EventEmitter<boolean>;
+
+  @Input()
   product: ProductModel;
 
   @Output()
   selected: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
 
   isSelected = false;
-
-  @Input()
-  added: EventEmitter<boolean>;
 
   constructor() {
   }
