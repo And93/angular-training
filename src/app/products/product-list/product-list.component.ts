@@ -10,7 +10,7 @@ import {BasketItemsService} from '../../shared/basket/service/basket-items.servi
 })
 export class ProductListComponent implements OnInit {
 
-  products: ProductModel[];
+  products: Promise<ProductModel[] | {}>;
   booked: ProductModel[] = [];
   added: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
     ) {
   }
 
-  ngOnInit(): ProductModel[] {
+  ngOnInit(): Promise<ProductModel[] | {}> {
     return this.products = this.productService.getProducts();
   }
 

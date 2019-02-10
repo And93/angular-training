@@ -1,6 +1,6 @@
 <div>
   <app-cart-item
-    *ngFor="let item of myBoughtProducts()"
+    *ngFor="let item of (myBoughtProducts() | orderBy)"
     [item]="item"
     (remove)="removeProduct($event)">
   </app-cart-item>

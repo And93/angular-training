@@ -13,10 +13,13 @@ export class CartItemComponent implements OnInit {
 
   @Output() remove: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
 
+  date: Date;
+
   constructor() {
   }
 
   ngOnInit() {
+    this.currentDate();
   }
 
   removeItem() {
@@ -24,11 +27,16 @@ export class CartItemComponent implements OnInit {
   }
 
   onMinus() {
+    this.currentDate();
     return this.item.count > 0 ? this.item.count-- : this.removeItem();
   }
 
   onPlus() {
+    this.currentDate();
     return this.item.count++;
   }
 
+  private currentDate() {
+    return this.date = new Date();
+  }
 }

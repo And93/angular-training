@@ -3,7 +3,7 @@
 </div>
 <div>
   <app-product
-    *ngFor="let product of products"
+    *ngFor="let product of products | async"
     [product]="product"
     (selected)="onSelected($event)"
     [added]="added"

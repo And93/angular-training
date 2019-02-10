@@ -3,9 +3,9 @@
     <ul>
       <li>Name: {{item.name}}</li>
       <li>Model: {{item.model}}</li>
-      <li>Cost (x1): {{item.cost}}</li>
+      <li>Cost (x1): {{item.cost  | currency}}</li>
       <li>Count: {{item.count}}</li>
-      <li>Total cost: {{item.cost * item.count}}</li>
+      <li>Total cost: {{item.cost * item.count | currency}}</li>
     </ul>
 
     <button
@@ -16,7 +16,6 @@
         alt="minus-item"
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAkSURBVEhLYxgFo2AUjALSwH8qYwyATREleBSMglEwCogDDAwAAg8n2XQlpsQAAAAASUVORK5CYII=">
     </button>
-
     <button
       type="button"
       (click)="onPlus()">
@@ -25,7 +24,7 @@
         alt="plus-item"
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA5SURBVEhLYxhx4D8U0wyMWkAQjFpAEAxuC2CaqYUxADZFlGCyAEWaiQGjFhAEoxYQBEPfgsEGGBgA4hNLtXHKA2AAAAAASUVORK5CYII=">
     </button>
-
     <button type="button" (click)="removeItem()">Remove</button>
   </div>
+  <p><i>Last upd: {{date | date:'mediumTime'}}</i></p>
 </div>

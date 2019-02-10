@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {ProductService} from './product-list/product/service/product.service';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ProductComponent} from './product-list/product/product.component';
 import {ProductListComponent} from './product-list/product-list.component';
 import {FormsModule} from '@angular/forms';
@@ -20,4 +19,5 @@ import {SharedModule} from '../shared/shared.module';
     ProductListComponent
   ]
 })
-export class ProductsModule { }
+export class ProductsModule {
+}
