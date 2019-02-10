@@ -3,9 +3,7 @@ import {Injectable} from '@angular/core';
 const letters = 'abcdefghijklmnopqrstuvwxyz';
 const numbs = '0123456789';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RandomGeneratorService {
 
   constructor() {

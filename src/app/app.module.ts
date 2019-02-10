@@ -10,10 +10,14 @@ import { AppComponent } from './app.component';
 
 import {ProductsModule} from './products/products.module';
 import {CartModule} from './cart/cart.module';
+import { TaskComponent } from './task/task.component';
+import { ContactUsComponent } from './feedback/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TaskComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

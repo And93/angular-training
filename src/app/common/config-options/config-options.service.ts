@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ConfigOptions} from './config-options.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ConfigOptionsService {
 
   private settings: ConfigOptions;
