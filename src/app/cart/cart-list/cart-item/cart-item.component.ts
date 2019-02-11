@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ProductModel} from '../../../products/product-list/product/models/product-model';
+import {BasketItemsService} from '../../../shared/basket/service/basket-items.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -15,25 +16,36 @@ export class CartItemComponent implements OnInit {
 
   date: Date;
 
-  constructor() {
+  constructor(public basketItemsService: BasketItemsService) {
   }
 
   ngOnInit() {
     this.currentDate();
   }
 
-  removeItem() {
+  removeItem() { // TODO
     this.remove.emit(this.item);
+    this.basketItemsService.totalCount--;
+    this.basketItemsService.totalCost -= this.item.cost;
   }
 
   onMinus() {
     this.currentDate();
-    return this.item.count > 0 ? this.item.count-- : this.removeItem();
+
+    if (this.item.count > 0) {
+      this.item.count--;
+      this.basketItemsService.totalCount--;
+      this.basketItemsService.totalCost -= this.item.cost;
+    } else {
+      this.removeItem();
+    }
   }
 
   onPlus() {
     this.currentDate();
-    return this.item.count++;
+    this.item.count++;
+    this.basketItemsService.totalCount++;
+    this.basketItemsService.totalCost += this.item.cost;
   }
 
   private currentDate() {

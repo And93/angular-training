@@ -15,7 +15,7 @@ export class BasketComponent implements OnInit {
   }
 
   onBasket() {
-    this.basketItemsService.setBoughtProducts(this.basketItemsService.chosenProducts);
+    this.basketItemsService.setBoughtProducts();
   }
 
 }

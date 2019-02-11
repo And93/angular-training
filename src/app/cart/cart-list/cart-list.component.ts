@@ -19,17 +19,9 @@ export class CartListComponent implements OnInit {
     return this.basketItemsService.getBoughtProducts();
   }
 
-  totalCount() {
-    return this.basketItemsService.totalCount();
-  }
-
-  totalCost() {
-    return this.basketItemsService.totalCost();
-  }
-
   onRemoveAll() {
-    this.basketItemsService.chosenProducts = [];
-    return this.basketItemsService.setBoughtProducts(this.basketItemsService.chosenProducts);
+    this.basketItemsService.chosenProducts.length = 0;
+    return this.basketItemsService.setBoughtProducts(); // TODO
   }
 
   removeProduct(product: ProductModel): ProductModel[] {

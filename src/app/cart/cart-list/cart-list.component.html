@@ -5,9 +5,9 @@
     (remove)="removeProduct($event)">
   </app-cart-item>
   <p></p>
-  <div class="total-info">
-    <li *ngIf="totalCount()">Total count: {{totalCount()}}</li>
-    <li *ngIf="totalCost()">Total cost: {{totalCost()}}</li>
+  <div class="total-info" *ngIf="basketItemsService.totalCount">
+    <li>Total count: {{basketItemsService.totalCount}}</li>
+    <li>Total cost: {{basketItemsService.totalCost | currency}}</li>
   </div>
   <button type="button" (click)="onRemoveAll()" *ngIf="myBoughtProducts()">Clean basket</button>
 </div>
