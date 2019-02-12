@@ -20,8 +20,7 @@ export class CartListComponent implements OnInit {
   }
 
   onRemoveAll() {
-    this.basketItemsService.chosenProducts.length = 0;
-    return this.basketItemsService.setBoughtProducts(); // TODO
+    return this.basketItemsService.removeAllBoughtProducts();
   }
 
   removeProduct(product: ProductModel): ProductModel[] {

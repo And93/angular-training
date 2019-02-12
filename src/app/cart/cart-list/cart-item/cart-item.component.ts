@@ -23,7 +23,7 @@ export class CartItemComponent implements OnInit {
     this.currentDate();
   }
 
-  removeItem() { // TODO
+  removeItem() { // TODO issue
     this.remove.emit(this.item);
     this.basketItemsService.totalCount--;
     this.basketItemsService.totalCost -= this.item.cost;

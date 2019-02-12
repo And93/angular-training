@@ -9,5 +9,5 @@
     <li>Total count: {{basketItemsService.totalCount}}</li>
     <li>Total cost: {{basketItemsService.totalCost | currency}}</li>
   </div>
-  <button type="button" (click)="onRemoveAll()" *ngIf="myBoughtProducts()">Clean basket</button>
+  <button type="button" (click)="onRemoveAll()" *ngIf="basketItemsService.totalCount">Clean basket</button>
 </div>

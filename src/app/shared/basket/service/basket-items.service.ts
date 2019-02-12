@@ -24,10 +24,21 @@ export class BasketItemsService {
       this.totalCount++;
       this.totalCost += product.cost;
     });
-    this.chosenProducts.length = 0;
+    this.removeAllChosenProducts();
   }
 
   getBoughtProducts() {
     return this.boughtProducts;
+  }
+
+  removeAllChosenProducts() {
+    return this.chosenProducts.length = 0;
+  }
+
+  removeAllBoughtProducts() {
+    this.removeAllChosenProducts();
+    this.totalCount = 0;
+    this.totalCost = 0;
+    return this.boughtProducts.length = 0;
   }
 }
