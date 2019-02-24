@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+
 import {ProductModel} from './models/product-model';
 
 @Component({
@@ -8,17 +9,11 @@ import {ProductModel} from './models/product-model';
 })
 export class ProductComponent implements OnInit {
 
-  @Input()
-  added: EventEmitter<boolean>;
+  @Input() added: EventEmitter<boolean>;
+  @Input() product: ProductModel;
 
-  @Input()
-  product: ProductModel;
-
-  @Output()
-  moreInfo = new EventEmitter<ProductModel>();
-
-  @Output()
-  selected: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
+  @Output() moreInfo = new EventEmitter<ProductModel>();
+  @Output() selected: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
 
   isSelected = false;
 

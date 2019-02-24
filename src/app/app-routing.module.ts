@@ -4,8 +4,8 @@ import {Routes, RouterModule} from '@angular/router';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {CartListComponent} from './cart/cart-list/cart-list.component';
 import {PathNotFoundComponent} from './layout/components/path-not-found/path-not-found.component';
-import {ProductComponent} from './products/product-list/product/product.component';
 import {LoginComponent} from './layout/components/login/login.component';
+import {ProductFormComponent} from './products/product-list/product-form/product-form.component';
 
 const routes: Routes = [
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'product/:productID',
-    component: ProductComponent
+    component: ProductFormComponent
   },
   {
     path: 'basket',

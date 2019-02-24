@@ -37,8 +37,7 @@ export class ProductListComponent implements OnInit {
     this.added.emit(true);
   }
 
-  onMoreInfo(product: ProductModel) {
-    console.log('product', product);
+  onMoreInfo(product: ProductModel): void {
     const link = ['/product', product.id];
     this.router.navigate(link);
   }
