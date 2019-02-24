@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
 import {ProductModel} from './product/models/product-model';
 import {ProductService} from './product/service/product.service';
 import {BasketItemsService} from '../../shared/basket/service/basket-items.service';
@@ -16,8 +18,9 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     public productService: ProductService,
-    public basketItemsService: BasketItemsService
-    ) {
+    public basketItemsService: BasketItemsService,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): Promise<ProductModel[] | {}> {
@@ -32,5 +35,11 @@ export class ProductListComponent implements OnInit {
     this.booked.forEach((product: ProductModel) => this.basketItemsService.chosenProducts.push(product));
     this.booked.length = 0;
     this.added.emit(true);
+  }
+
+  onMoreInfo(product: ProductModel) {
+    console.log('product', product);
+    const link = ['/product', product.id];
+    this.router.navigate(link);
   }
 }

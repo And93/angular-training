@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
 import {ProductModel} from '../../products/product-list/product/models/product-model';
 import {BasketItemsService} from '../../shared/basket/service/basket-items.service';
 
@@ -9,7 +11,10 @@ import {BasketItemsService} from '../../shared/basket/service/basket-items.servi
 })
 export class CartListComponent implements OnInit {
 
-  constructor(public basketItemsService: BasketItemsService) {
+  constructor(
+    public basketItemsService: BasketItemsService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -20,7 +25,8 @@ export class CartListComponent implements OnInit {
   }
 
   onRemoveAll() {
-    return this.basketItemsService.removeAllBoughtProducts();
+    this.basketItemsService.removeAllBoughtProducts();
+    this.router.navigate(['/product-list']);
   }
 
   removeProduct(product: ProductModel): ProductModel[] {

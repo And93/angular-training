@@ -2,32 +2,39 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
+import {Router} from '@angular/router';
+
 import {AppComponent} from './app.component';
-
-/**
- * Modules
- */
-
 import {ProductsModule} from './products/products.module';
 import {CartModule} from './cart/cart.module';
-import {TaskComponent} from './task/task.component';
 import {ContactUsComponent} from './feedback/contact-us/contact-us.component';
+import {LayoutModule} from './layout/layout.module';
+import {SharedModule} from './shared/shared.module';
+import {AdminModule} from './admin/admin.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,
     ContactUsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
 
+    CoreModule,
     ProductsModule,
-    CartModule
+    CartModule,
+    LayoutModule,
+    SharedModule,
+    AdminModule,
+
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
 }

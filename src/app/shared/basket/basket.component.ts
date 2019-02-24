@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
 import {BasketItemsService} from './service/basket-items.service';
 
 @Component({
@@ -8,7 +10,10 @@ import {BasketItemsService} from './service/basket-items.service';
 })
 export class BasketComponent implements OnInit {
 
-  constructor(public basketItemsService: BasketItemsService) {
+  constructor(
+    public basketItemsService: BasketItemsService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -16,6 +21,7 @@ export class BasketComponent implements OnInit {
 
   onBasket() {
     this.basketItemsService.setBoughtProducts();
+    this.router.navigate(['/basket']);
   }
 
 }

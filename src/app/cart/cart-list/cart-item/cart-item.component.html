@@ -1,5 +1,5 @@
-<div class="bought-products item">
-  <div class="bought-products item-body">
+<div class="panel panel-default">
+  <div class="panel-body">
     <ul>
       <li>Name: {{item.name}}</li>
       <li>Model: {{item.model}}</li>
@@ -10,6 +10,7 @@
 
     <button
       type="button"
+      class="btn btn-outline-secondary btn-sm"
       (click)="onMinus()">
       <img
         width="10"
@@ -18,13 +19,18 @@
     </button>
     <button
       type="button"
+      class="btn btn-outline-secondary btn-sm"
       (click)="onPlus()">
       <img
         width="10"
         alt="plus-item"
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA5SURBVEhLYxhx4D8U0wyMWkAQjFpAEAxuC2CaqYUxADZFlGCyAEWaiQGjFhAEoxYQBEPfgsEGGBgA4hNLtXHKA2AAAAAASUVORK5CYII=">
     </button>
-    <button type="button" (click)="removeItem()">Remove</button>
+    <button
+      type="button"
+      class="btn btn-outline-secondary btn-sm"
+      (click)="removeItem()">Remove
+    </button>
   </div>
   <p><i>Last upd: {{date | date:'mediumTime'}}</i></p>
 </div>

@@ -1,3 +1,4 @@
+<h3>Basket</h3>
 <div>
   <app-cart-item
     *ngFor="let item of (myBoughtProducts() | orderBy)"
@@ -9,5 +10,10 @@
     <li>Total count: {{basketItemsService.totalCount}}</li>
     <li>Total cost: {{basketItemsService.totalCost | currency}}</li>
   </div>
-  <button type="button" (click)="onRemoveAll()" *ngIf="basketItemsService.totalCount">Clean basket</button>
+  <button
+    type="button"
+    class="btn btn-danger"
+    (click)="onRemoveAll()"
+    *ngIf="basketItemsService.totalCount">Clean basket
+  </button>
 </div>

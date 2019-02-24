@@ -1,11 +1,14 @@
-<div class="products item">
-  <input type="checkbox" [checked]="isSelected" (click)="onSelected()">
-  <div class="item-body">
+<div class="panel panel-default">
+  <label>
+    <input class="checkbox" type="checkbox" [checked]="isSelected" (click)="onSelected()">
+  </label>
+  <div class="panel-body">
     <ul>
       <li>Name: {{product.name}}</li>
       <li>Model: {{product.model}}</li>
-      <li>Cost (x1): {{product.cost}}</li>
+      <li>Cost: {{product.cost | currency}}</li>
       <li *ngIf="product.booked">Booked: {{product.booked}}</li>
     </ul>
+    <button class="btn btn-warning btn-sm" (click)="onMoreInfo()">More info</button>
   </div>
 </div>

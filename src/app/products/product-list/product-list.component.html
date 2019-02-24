@@ -1,12 +1,17 @@
-<div class="basket">
-  <app-basket></app-basket>
-</div>
+<h3>All products</h3>
 <div>
   <app-product
     *ngFor="let product of products | async"
     [product]="product"
     (selected)="onSelected($event)"
+    (moreInfo)="onMoreInfo($event)"
     [added]="added"
   ></app-product>
 </div>
-<button type="button" [disabled]="!booked.length" (click)="onAdd()">Add {{booked.length}}</button>
+<button
+  type="button"
+  class="btn btn-primary"
+  [disabled]="!booked.length"
+  (click)="onAdd()">
+  Add {{booked.length}}
+</button>

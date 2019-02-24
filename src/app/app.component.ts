@@ -12,7 +12,6 @@ const GetString = new InjectionToken<string>('getString');
   ]
 })
 export class AppComponent implements OnInit {
-  title = 'shop';
 
   constructor(
     @Inject(GetString) private getString: string
@@ -21,5 +20,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     return this.getString;
+  }
+
+  onActivate($event) {
+    console.log('Activated Component', $event);
+  }
+
+  onDeactivate($event) {
+    console.log('Deactivated Component', $event);
   }
 }
