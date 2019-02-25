@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 
 import {ProductComponent} from './product-list/product/product.component';
 import {ProductListComponent} from './product-list/product-list.component';
-import {ProductFormComponent} from './product-list/product-form/product-form.component';
+import {ProductViewComponent} from './product-list/product-view/product-view.component';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import {ProductFormComponent} from './product-list/product-form/product-form.com
   declarations: [
     ProductComponent,
     ProductListComponent,
-    ProductFormComponent
+    ProductViewComponent
   ],
   exports: [
     ProductListComponent

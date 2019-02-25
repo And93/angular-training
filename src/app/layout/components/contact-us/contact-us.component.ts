@@ -1,5 +1,5 @@
 import {Component, OnInit, Optional} from '@angular/core';
-import {ConfigOptionsService} from '../../common/config-options/config-options.service';
+import {ConfigOptionsService} from '../../../core/config-options/config-options.service';
 
 @Component({
   selector: 'app-contact-us',

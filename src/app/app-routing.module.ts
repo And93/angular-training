@@ -5,7 +5,7 @@ import {ProductListComponent} from './products/product-list/product-list.compone
 import {CartListComponent} from './cart/cart-list/cart-list.component';
 import {PathNotFoundComponent} from './layout/components/path-not-found/path-not-found.component';
 import {LoginComponent} from './layout/components/login/login.component';
-import {ProductFormComponent} from './products/product-list/product-form/product-form.component';
+import {ProductViewComponent} from './products/product-list/product-view/product-view.component';
 
 const routes: Routes = [
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'product/:productID',
-    component: ProductFormComponent
+    component: ProductViewComponent
   },
   {
     path: 'basket',
@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
   },
   {
     path: '**',

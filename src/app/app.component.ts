@@ -1,5 +1,5 @@
 import {Component, Inject, InjectionToken, OnInit} from '@angular/core';
-import {RandomGeneratorService} from './common/random-generator/random-generator.service';
+import {RandomGeneratorService} from './core/random-generator/random-generator.service';
 
 const GetString = new InjectionToken<string>('getString');
 
@@ -8,7 +8,10 @@ const GetString = new InjectionToken<string>('getString');
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [
-    {provide: GetString, useFactory: () => (new RandomGeneratorService()).getRandomString(7)}
+    {
+      provide: GetString,
+      useFactory: () => (new RandomGeneratorService()).getRandomString(7)
+    }
   ]
 })
 export class AppComponent implements OnInit {

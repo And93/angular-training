@@ -7,11 +7,10 @@ import {Router} from '@angular/router';
 import {AppComponent} from './app.component';
 import {ProductsModule} from './products/products.module';
 import {CartModule} from './cart/cart.module';
-import {ContactUsComponent} from './feedback/contact-us/contact-us.component';
+import {ContactUsComponent} from './layout/components/contact-us/contact-us.component';
 import {LayoutModule} from './layout/layout.module';
 import {SharedModule} from './shared/shared.module';
-import {AdminModule} from './admin/admin.module';
-import { CoreModule } from './core/core.module';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { CoreModule } from './core/core.module';
     CartModule,
     LayoutModule,
     SharedModule,
-    AdminModule,
 
     AppRoutingModule
   ],

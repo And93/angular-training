@@ -4,14 +4,14 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 // rxjs
 import {switchMap} from 'rxjs/operators';
 
-import {ProductModel} from '../product/models/product-model';
-import {ProductService} from '../product/service/product.service';
+import {ProductModel} from '../../../products/product-list/product/models/product-model';
+import {ProductService} from '../../../products/product-list/product/service/product.service';
 
 @Component({
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormAdminComponent implements OnInit {
 
   product: ProductModel;
 
@@ -42,7 +42,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   onGoBack() {
-    this.router.navigate(['/product-list']);
+    this.router.navigate(['/admin/products']);
   }
 
   onDelete() {
