@@ -24,9 +24,6 @@ export class ProductFormAdminComponent implements OnInit {
 
   ngOnInit() {
     this.product = new ProductModel();
-
-    // it is not necessary to save subscription to route.paramMap
-    // it handles automatically
     this.route.paramMap
       .pipe(switchMap((params: Params) => this.productService.getProduct(+params.get('productID'))))
       .subscribe(
@@ -37,18 +34,17 @@ export class ProductFormAdminComponent implements OnInit {
 
   onUpdProduct() {
     const product = {...this.product};
-    this.productService.updateTask(product);
-    this.onGoBack();
+    return this.productService.updateTask(product)
+      .then(() => this.onGoBack());
   }
 
   onGoBack() {
-    this.router.navigate(['/admin/products']);
+    return this.router.navigate(['/admin/products']);
   }
 
   onDelete() {
     const product = {...this.product};
-    this.productService.deleteTask(product);
-    this.onGoBack();
+    this.productService.deleteTask(product)
+      .then(() => this.onGoBack());
   }
-
 }

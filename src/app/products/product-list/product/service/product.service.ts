@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ProductModel} from '../models/product-model';
 
 const productList = [
@@ -38,18 +38,27 @@ export class ProductService {
       .catch(this.handleError);
   }
 
-  updateTask(prod: ProductModel): void {
-    const i = productList.findIndex(p => p.id === prod.id);
-    if (i > -1) {
-      productList.splice(i, 1, prod);
-    }
+  updateTask(prod: ProductModel): Promise<ProductModel> {
+    const url = `${this.prodUrl}/${prod.id}`,
+      body = JSON.stringify(prod),
+      options = {
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+      };
+
+    return this.http
+      .put(url, body, options)
+      .toPromise()
+      .then(response => <ProductModel>response)
+      .catch(this.handleError);
   }
 
-  deleteTask(prod: ProductModel): void {
-    const i = productList.findIndex(p => p.id === prod.id);
-    if (i > -1) {
-      productList.splice(i, 1);
-    }
+  deleteTask(prod: ProductModel): Promise<ProductModel> {
+    const url = `${this.prodUrl}/${prod.id}`;
+
+    return (this.http
+      .delete(url)
+      .toPromise()
+      .catch(this.handleError));
   }
 
   private handleError(error: any): Promise<any> {
