@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {ProductModel} from '../models/product-model';
 
 const productList = [
@@ -15,21 +16,26 @@ const productList = [
   providedIn: 'root'
 })
 export class ProductService {
+  private prodUrl = 'http://localhost:3000/products';
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   getProducts(): Promise<ProductModel[] | {}> {
-    return new Promise(resolve => resolve(productList))
-      .catch(err => {
-        throw (err);
-      });
+    return this.http
+      .get(this.prodUrl)
+      .toPromise()
+      .then()
+      .catch(this.handleError);
   }
 
   getProduct(id: number | string): Promise<ProductModel> {
-    return this.getProducts()
-      .then((products: ProductModel[]) => products.find((prod: ProductModel) => prod.id === +id))
-      .catch(() => Promise.reject('Error in ProductService::getProduct'));
+    const url = `${this.prodUrl}/${id}`;
+    return this.http
+      .get(url)
+      .toPromise()
+      .then((product) => <ProductModel>product)
+      .catch(this.handleError);
   }
 
   updateTask(prod: ProductModel): void {
@@ -44,5 +50,10 @@ export class ProductService {
     if (i > -1) {
       productList.splice(i, 1);
     }
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
   }
 }
