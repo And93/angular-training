@@ -12,6 +12,7 @@ import {ContactUsComponent} from './layout/components/contact-us/contact-us.comp
 import {LayoutModule} from './layout/layout.module';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
+import {UsersModule} from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {CoreModule} from './core/core.module';
     CartModule,
     LayoutModule,
     SharedModule,
+    UsersModule,
 
     AppRoutingModule
   ],

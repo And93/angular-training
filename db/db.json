@@ -43,5 +43,12 @@
       "model": "Electronic h5",
       "cost": 1500
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "fake@fake.fake",
+      "password": "fake"
+    }
   ]
 }
