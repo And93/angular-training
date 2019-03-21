@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
 import {Router} from '@angular/router';
@@ -13,6 +13,7 @@ import {LayoutModule} from './layout/layout.module';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import {UsersModule} from './users/users.module';
+import {MyInterceptor} from './core/interceptors/my.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,14 @@ import {UsersModule} from './users/users.module';
 
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyInterceptor,
+      multi: true,
+    }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
