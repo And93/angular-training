@@ -1,0 +1,19 @@
+<h3>Basket</h3>
+<div>
+  <app-cart-item
+    *ngFor="let item of (myBoughtProducts() | orderBy)"
+    [item]="item"
+    (remove)="removeProduct($event)">
+  </app-cart-item>
+  <p></p>
+  <div class="total-info" *ngIf="basketItemsService.totalCount">
+    <li>Total count: {{basketItemsService.totalCount}}</li>
+    <li>Total cost: {{basketItemsService.totalCost | currency}}</li>
+  </div>
+  <button
+    type="button"
+    class="btn btn-danger"
+    (click)="onRemoveAll()"
+    *ngIf="basketItemsService.totalCount">Clean basket
+  </button>
+</div>

@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Mobile phone",
+      "model": "Phone 2018",
+      "cost": 340
+    },
+    {
+      "id": 2,
+      "name": "Mobile phone",
+      "model": "Super phone 2019",
+      "cost": 560
+    },
+    {
+      "id": 3,
+      "name": "Mobile phone",
+      "model": "Smartphone",
+      "cost": 180
+    },
+    {
+      "id": 4,
+      "name": "TV",
+      "model": "Home rest v1.0",
+      "cost": 875
+    },
+    {
+      "id": 5,
+      "name": "Copter",
+      "model": "Free fly 1000",
+      "cost": 400
+    },
+    {
+      "id": 6,
+      "name": "Sounds system",
+      "model": "Happy neighbors v2.0",
+      "cost": 780,
+      "booked": true
+    },
+    {
+      "id": 7,
+      "name": "PC",
+      "model": "Electronic h5",
+      "cost": 1500
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "fake@fake.fake",
+      "password": "fake"
+    }
+  ]
+}
